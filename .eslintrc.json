@@ -1,0 +1,57 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "extends": [
+        "plugin:react/recommended",
+        "standard",
+        "plugin:react-hooks/recommended"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": "latest",
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react",
+        "import-helpers", "jsx-a11y", "import", "prettier"
+        // "@typescript-eslint"
+    ],
+    "rules": {
+        "prettier/prettier": "error",
+        "no-else-return": "warn",
+        "no-console": ["warn", { "allow": ["warn", "error"] }],
+        "space-before-function-paren": "off",
+        "@typescript-eslint/no-unused-vars": ["warn", { "argsIgnorePattern": "^_" }],
+        "@typescript-eslint/no-explicit-any": "off",
+        "import-helpers/order-imports": [
+            "warn",
+            {
+              "newlinesBetween": "always",
+              "alphabetize": { "order": "asc", "ignoreCase": true },
+              "groups": ["module", "/^@src/", "/^@//", ["parent", "sibling", "index"]]
+            }
+          ]
+    },
+    "settings": {
+        "react":{
+            "version": "detect"
+        },
+        "import/resolver": { "typescript": {} }
+    },
+    "overrides": [
+        {
+            "files": ["**/*.ts", "**/*.tsx"],
+            "plugins": ["@typescript-eslint"],
+            "rules": {
+              "no-unused-vars": "off",
+              "no-use-before-define": "off",
+              "@typescript-eslint/no-use-before-define": ["error"]
+            }
+          }
+    ]
+}
