@@ -1,3 +1,4 @@
+import { round } from '~/helpers/number'
 import React from 'react'
 
 import { svgProps } from './svgProps'
@@ -5,11 +6,13 @@ import { svgProps } from './svgProps'
 // import { Container } from './styles';
 type Props = {
   color?: string
+  width?: number
 }
 
-export const Logo: React.FC<Props> = ({ color = 'currentColor' }) => {
+export const Logo: React.FC<Props> = ({ color = 'currentColor', width = 512 }) => {
+  const h = round(width / 3.908, 0)
   return (
-    <svg {...svgProps}>
+    <svg {...svgProps} width={`${width}px`} height={`${h}px`} viewBox="0 0 466.47 119.59">
       <g>
         <path
           fill={color}

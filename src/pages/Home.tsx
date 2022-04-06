@@ -37,7 +37,7 @@ export const PageHome: React.FC = () => {
         onSliderChange={onChange}
         onSliderChangeComplete={onChangeComplete}
         onLayout={onLayout}
-        timing={1000}
+        timing={250}
       >
         {routes.map(({ Component = null, title }) => {
           return <SliderItem key={title}>{Component ? <Component /> : <p>asasas</p>}</SliderItem>
