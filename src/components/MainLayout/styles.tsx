@@ -4,6 +4,7 @@ import styled, { css } from 'styled-components'
 export const ASideContainer = styled.aside<{ isMobile?: boolean }>`
   position: relative;
   display: block;
+  transition: all ease-in-out 0.3s;
 `
 
 export const MainContainer = styled.main<{ isMobile?: boolean }>`

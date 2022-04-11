@@ -12,6 +12,7 @@ const Container = styled.div<{ actived?: boolean }>`
       ? css``
       : css`
           filter: blur(0.2rem);
+          opacity: 0.2;
           overflow: hidden;
         `
   }}
