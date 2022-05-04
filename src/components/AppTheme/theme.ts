@@ -21,7 +21,7 @@ export const themeColors = {
 export const appTheme = {
   colors: themeColors,
   spacing,
-  rounded: 12,
+  rounded: 0,
   borderWidth: 1
 }
 

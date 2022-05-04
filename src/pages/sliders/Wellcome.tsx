@@ -33,7 +33,7 @@ const Box = styled.div`
     font-size: calc(18px + 2vmin);
     text-align: center;
     margin: 0 auto;
-    padding: 0;
+    padding: 20px 0 0 0;
     padding-bottom: 20px;
     span {
       word-break: keep-all;
@@ -42,7 +42,7 @@ const Box = styled.div`
   }
   p {
     font-size: calc(12px + 2vmin);
-    padding-bottom: 20px;
+    padding: 20px 0;
   }
 `
 

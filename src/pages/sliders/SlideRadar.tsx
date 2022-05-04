@@ -1,4 +1,4 @@
-import { Checkbox, FormControlLabel, FormGroup } from '@mui/material'
+import { Checkbox, FormControlLabel, FormGroup, Stack } from '@mui/material'
 import { useAppTheme } from '~/components/AppTheme'
 import { Button } from '~/components/buttons/Button'
 import { usePassRoll } from '~/components/PassRollLayout'
@@ -64,7 +64,7 @@ interface ChartState {
   e?: boolean
 }
 export const SlideRadar: React.FC = () => {
-  const [showing, setShowing] = useState<ChartState>({ a: true, n: true, p: true, e: true })
+  const [showing, setShowing] = useState<ChartState>({ a: true, n: true, p: false, e: false })
 
   const { matchingBackgroudText } = useAppTheme()
   const { goTo } = usePassRoll('main')
@@ -179,7 +179,9 @@ export const SlideRadar: React.FC = () => {
           sx={{ color: '#a369fe' }}
         />
       </FormGroup>
-      <Button onClick={() => goTo(1)} text="Avançar" iconName="ArrowForward" />
+      <Stack direction={'row'} spacing={1}>
+        <Button onClick={() => goTo(1)} text="Avançar" iconName="ArrowForward" />
+      </Stack>
     </Container>
   )
 }
