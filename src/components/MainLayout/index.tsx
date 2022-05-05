@@ -13,7 +13,7 @@ export const MainLayout: React.FC = ({ children }) => {
     <Container sideWidth={280} isMobile={isMobile}>
       <ASideContainer />
       <MainContainer>{children}</MainContainer>
-      <Navigation>bsadsdsds</Navigation>
+      <Navigation />
     </Container>
   )
 }

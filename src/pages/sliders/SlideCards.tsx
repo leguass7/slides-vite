@@ -27,7 +27,8 @@ const Container = styled.div<{ textColor?: string }>`
 export const CardsContainer = styled.div`
   height: 100%;
   width: 100%;
-  border: 1px dashed #000;
+  padding: 20px;
+  /* border: 1px dashed #000; */
 `
 
 export const SlideCards: React.FC = () => {
@@ -40,29 +41,16 @@ export const SlideCards: React.FC = () => {
       <CardsContainer>
         <br />
         <div style={{ padding: 10, width: 200 }}>
-          <AnimatedInput />
+          <AnimatedInput effect="7" line={1} lineColor="#F0F" />
+        </div>
+        <div style={{ padding: 10, width: 200 }}>
+          <AnimatedInput effect="8" lineColor="#F0F" />
+        </div>
+        <div style={{ padding: 10, width: 200 }}>
+          <AnimatedInput effect="9" lineColor="#F0F" />
         </div>
         <br />
-        {/* <AnimedButton>TESTE</AnimedButton> */}
-        <br />
-        <div className="col-3">
-          <input className="effect-7" type="text" placeholder="Placeholder Text" />
-          <span className="focus-border">
-            <i></i>
-          </span>
-        </div>
-        <div className="col-3">
-          <input className="effect-8" type="text" placeholder="Placeholder Text" />
-          <span className="focus-border">
-            <i></i>
-          </span>
-        </div>
-        <div className="col-3">
-          <input className="effect-9" type="text" placeholder="Placeholder Text" />
-          <span className="focus-border">
-            <i></i>
-          </span>
-        </div>
+
         <br />
         <br />
         <br />

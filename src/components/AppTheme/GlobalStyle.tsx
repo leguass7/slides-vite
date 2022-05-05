@@ -2,6 +2,7 @@ import { soraCss } from '~/styles/fonts'
 import { createGlobalStyle, css } from 'styled-components'
 
 const rooCss = css`
+  box-sizing: border-box;
   position: relative;
   display: block;
   height: 100%;
@@ -34,6 +35,17 @@ export default createGlobalStyle`
     position: relative;
     font-family: Sora, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell',
     'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  }
+
+  :focus {
+    outline: none;
+  }
+
+  input,
+  button {
+    box-sizing: border-box;
+    font-family: Sora, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell',
+      'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   }
 
   #root {

@@ -11,7 +11,7 @@ export const Navigation: React.FC<Props> = () => {
   return (
     <NavigationContainer>
       {routes.map(route => {
-        return <NavItem key={route.title}>{route.title}</NavItem>
+        return <NavItem key={route.title} title={route.title} />
       })}
     </NavigationContainer>
   )
