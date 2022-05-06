@@ -1,4 +1,4 @@
-import { alpha } from '@mui/material'
+import { tranparency } from '~/helpers/colors'
 import styled from 'styled-components'
 
 export const Input = styled.input`
@@ -47,11 +47,6 @@ export const FocusBorder = styled.span`
 //   /* background-color: rgba(0, 0, 0, 0.2); */
 //   z-index: -1;
 // `
-
-const tranparency = (light: boolean, opacity = 0.5) => {
-  const color = light ? '#ffffff' : '#000000'
-  return alpha(color, opacity)
-}
 
 export const InputContainer = styled.div<{
   line?: number

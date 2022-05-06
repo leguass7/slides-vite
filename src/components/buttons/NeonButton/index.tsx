@@ -29,7 +29,7 @@ const flex = css`
 const Container = styled.div`
   position: relative;
   background-color: #000;
-  padding: 10px 16px;
+  padding: ${({ theme }) => `${theme.spacing.m}px ${theme.spacing.xl}px`};
   border: 1px solid #000;
   ${flex}
 
