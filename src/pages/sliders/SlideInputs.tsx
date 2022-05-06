@@ -2,7 +2,6 @@ import Grid from '@mui/material/Grid'
 import Stack from '@mui/material/Stack'
 import { AnimatedInput, FieldContainer } from '~/components/AnimatedInput'
 import { useAppTheme } from '~/components/AppTheme'
-import { Button } from '~/components/buttons/Button'
 import { NeonButton } from '~/components/buttons/NeonButton'
 import { PanelContainer } from '~/components/PanelContainer'
 import { usePassRoll } from '~/components/PassRollLayout'
@@ -67,7 +66,7 @@ export const SlideInputs: React.FC = () => {
         <br />
         <Stack direction={'row'} spacing={1}>
           {/* <Button onClick={() => goTo(3)} text="Avançar" iconName="ArrowForward" /> */}
-          <NeonButton label="Action" gradient={['#F0F', theme.colors.primary]} />
+          <NeonButton label="Action" gradient={['#F0F', theme.colors.primary]} onClick={() => goTo(3)} />
         </Stack>
       </PanelContainer>
     </Container>
