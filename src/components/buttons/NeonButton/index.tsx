@@ -129,14 +129,15 @@ type Props = {
   label: string
   textSize?: number
   gradient?: string[]
+  onClick?: React.MouseEventHandler<HTMLButtonElement>
 }
-export const NeonButton: React.FC<Props> = ({ label, textSize = 26, gradient = ['red', 'blue'] }) => {
+export const NeonButton: React.FC<Props> = ({ label, textSize = 26, gradient = ['red', 'blue'], onClick }) => {
   const buildGradientColors = () => {
     return `linear-gradient(45deg, ${gradient.join(',')})`
   }
   return (
     <Container>
-      <Neon contentData={label} textSize={textSize}>
+      <Neon contentData={label} textSize={textSize} onClick={onClick}>
         {label}
       </Neon>
       <Gradient bgGradient={buildGradientColors()} />
