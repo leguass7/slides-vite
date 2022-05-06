@@ -21,8 +21,8 @@ export const NavigationContainer = styled.div<{ isMobile?: boolean }>`
   max-width: 280px;
   height: 100vh;
   max-height: 100%;
-  /* background-color: ${() => alpha('#000', 0.2)}; */
-  background-color: #000;
+  background-color: ${() => alpha('#000', 0.2)};
+
   border-right: 1px solid ${() => alpha('#000', 0.2)};
   transition: all ease-in-out 0.3s;
   color: #fff;

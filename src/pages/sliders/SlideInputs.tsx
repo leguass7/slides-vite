@@ -3,6 +3,7 @@ import Stack from '@mui/material/Stack'
 import { AnimatedInput, FieldContainer } from '~/components/AnimatedInput'
 import { useAppTheme } from '~/components/AppTheme'
 import { Button } from '~/components/buttons/Button'
+import { NeonButton } from '~/components/buttons/NeonButton'
 import { PanelContainer } from '~/components/PanelContainer'
 import { usePassRoll } from '~/components/PassRollLayout'
 import React from 'react'
@@ -24,7 +25,7 @@ const Container = styled.div<{ textColor?: string }>`
 `
 
 export const SlideInputs: React.FC = () => {
-  const { matchingBackgroudText } = useAppTheme()
+  const { matchingBackgroudText, theme } = useAppTheme()
   const color = matchingBackgroudText('primary')
   const { goTo } = usePassRoll('main')
 
@@ -34,7 +35,7 @@ export const SlideInputs: React.FC = () => {
         <Grid container spacing={2}>
           <Grid item xs={3}>
             <FieldContainer gap={5}>
-              <AnimatedInput effect="middle" line={1} lineColor="#F0F" placeholder="central" />
+              <AnimatedInput effect="middle" lineColor="#F0F" placeholder="central" textColor={color} />
             </FieldContainer>
             <FieldContainer gap={5}>
               <AnimatedInput effect="double" lineColor="#F0F" placeholder="bilateral" />
@@ -48,7 +49,7 @@ export const SlideInputs: React.FC = () => {
           </Grid>
           <Grid item xs={3}>
             <FieldContainer>
-              <AnimatedInput effect="middle" line={1} lineColor="#F0F" gap={5} placeholder="gap central" />
+              <AnimatedInput effect="middle" lineColor="#F0F" gap={5} placeholder="gap central" />
             </FieldContainer>
             <FieldContainer>
               <AnimatedInput effect="double" lineColor="#F0F" gap={5} placeholder="gap bilateral" />
@@ -57,39 +58,18 @@ export const SlideInputs: React.FC = () => {
               <AnimatedInput effect="unique" lineColor="#F0F" gap={5} placeholder="gap único" />
             </FieldContainer>
             <FieldContainer>
-              <AnimatedInput effect="unique" lineColor="#F0F" light gap={5} placeholder="gap único claro" />
+              <AnimatedInput effect="unique" lineColor="#F0F" light gap={5} placeholder="gap único claro" line={1} />
             </FieldContainer>
           </Grid>
         </Grid>
         <br />
-
-        <br />
-
-        <br />
-        <br />
-        <br />
         <br />
         <br />
         <Stack direction={'row'} spacing={1}>
-          <Button onClick={() => goTo(3)} text="Avançar" iconName="ArrowForward" />
+          {/* <Button onClick={() => goTo(3)} text="Avançar" iconName="ArrowForward" /> */}
+          <NeonButton label="Action" gradient={['#F0F', theme.colors.primary]} />
         </Stack>
       </PanelContainer>
-      {/* <Box>
-        <Grid container spacing={2}>
-          <Grid item xs={12}>
-            <p>xs=8</p>
-          </Grid>
-          <Grid item xs={4}>
-            <p>xs=4</p>
-          </Grid>
-          <Grid item xs={4}>
-            <p>xs=4</p>
-          </Grid>
-          <Grid item xs={6}>
-            <p>xs=8</p>
-          </Grid>
-        </Grid>
-      </Box> */}
     </Container>
   )
 }

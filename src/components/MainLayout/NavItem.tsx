@@ -1,8 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { NeonContainer } from '../NeonContainer'
-
 const ItemContainer = styled.div`
   padding: 20px;
   margin: 20px;
@@ -14,8 +12,8 @@ type Props = {
 
 export const NavItem: React.FC<Props> = ({ title }) => {
   return (
-    <NeonContainer>
+    <div>
       <ItemContainer className="neon">{title}</ItemContainer>
-    </NeonContainer>
+    </div>
   )
 }

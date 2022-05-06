@@ -9,20 +9,22 @@ type Props = {
   placeholder?: string
   line?: number
   lineColor?: string
+  textColor?: string
   gap?: number
   light?: boolean
 }
 
 export const AnimatedInput: React.FC<Props> = ({
-  line = 1,
+  line = 2,
   lineColor = '#0D7ECC',
+  textColor,
   effect = 'unique',
   placeholder = 'text',
   gap,
   light
 }) => {
   return (
-    <InputContainer line={line} lineColor={lineColor} gap={gap} light={light}>
+    <InputContainer line={line} lineColor={lineColor} gap={gap} light={light} textColor={textColor}>
       <Input className={cx({ [effect]: true })} type="text" placeholder={placeholder} />
       <FocusBorder>
         <i />

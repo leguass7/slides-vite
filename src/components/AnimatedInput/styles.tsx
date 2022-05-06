@@ -59,14 +59,15 @@ export const InputContainer = styled.div<{
   offColor?: string
   gap?: number
   light?: boolean
+  textColor?: string
 }>`
   position: relative;
   padding: ${({ gap = 0 }) => gap}px;
 
   ${Input} {
-    color: ${({ lineColor = '#000' }) => lineColor};
+    color: ${({ lineColor = '#000', textColor }) => textColor || lineColor};
     text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.5);
-    border-width: ${({ gap, line }) => (gap ? 1 : line)}px;
+    border-width: ${({ gap, line }) => (gap ? line : line)}px;
     border-color: ${({ offColor, gap, light }) =>
       gap ? tranparency(!!light, 0.1) : offColor || tranparency(!!light, 0.2)};
     background-color: ${({ gap, light }) => (gap ? tranparency(!!light, 0.1) : 'transparent')};
