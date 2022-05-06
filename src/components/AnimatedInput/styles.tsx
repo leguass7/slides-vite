@@ -1,3 +1,4 @@
+import { alpha } from '@mui/material'
 import styled from 'styled-components'
 
 export const Input = styled.input`
@@ -39,17 +40,41 @@ export const FocusBorder = styled.span`
   }
 `
 
-export const InputContainer = styled.div<{ line?: number; lineColor?: string; offColor?: string }>`
+// export const InputBackground = styled.div<{ gap?: number }>`
+//   position: absolute;
+//   width: calc(100% - ${({ gap = 0 }) => gap * 2}px);
+//   height: calc(100% - ${({ gap = 0 }) => gap * 2}px);
+//   /* background-color: rgba(0, 0, 0, 0.2); */
+//   z-index: -1;
+// `
+
+const tranparency = (light: boolean, opacity = 0.5) => {
+  const color = light ? '#ffffff' : '#000000'
+  return alpha(color, opacity)
+}
+
+export const InputContainer = styled.div<{
+  line?: number
+  lineColor?: string
+  offColor?: string
+  gap?: number
+  light?: boolean
+}>`
   position: relative;
+  padding: ${({ gap = 0 }) => gap}px;
 
   ${Input} {
     color: ${({ lineColor = '#000' }) => lineColor};
-    text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.5);
-    border-color: ${({ offColor = 'rgba(255, 255, 255, 0.1)' }) => offColor};
+    text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.5);
+    border-width: ${({ gap, line }) => (gap ? 1 : line)}px;
+    border-color: ${({ offColor, gap, light }) =>
+      gap ? tranparency(!!light, 0.1) : offColor || tranparency(!!light, 0.2)};
+    background-color: ${({ gap, light }) => (gap ? tranparency(!!light, 0.1) : 'transparent')};
   }
   ${Input}::placeholder {
-    color: ${({ offColor = 'rgba(255, 255, 255, 0.3)' }) => offColor};
+    color: ${({ offColor, light }) => offColor || tranparency(!!light, 0.9)};
     font-weight: lighter;
+    text-shadow: none;
   }
 
   ${FocusBorder}:before, ${FocusBorder}:after {
@@ -64,87 +89,87 @@ export const InputContainer = styled.div<{ line?: number; lineColor?: string; of
     box-shadow: 0 0 5px ${({ lineColor = '#000' }) => lineColor};
   }
 
-  .effect-7 ~ ${FocusBorder}:before, .effect-7 ~ ${FocusBorder}:after {
+  .middle ~ ${FocusBorder}:before, .middle ~ ${FocusBorder}:after {
     left: 50%;
     transition: 0.4s;
   }
-  .effect-7 ~ ${FocusBorder}:after {
+  .middle ~ ${FocusBorder}:after {
     top: auto;
     bottom: 0;
   }
-  .effect-7 ~ ${FocusBorder} i:before,
-  .effect-7 ~ ${FocusBorder} i:after {
+  .middle ~ ${FocusBorder} i:before,
+  .middle ~ ${FocusBorder} i:after {
     top: 50%;
     left: 0;
     transition: 0.6s;
   }
-  .effect-7 ~ ${FocusBorder} i:after {
+  .middle ~ ${FocusBorder} i:after {
     left: auto;
     right: 0;
   }
-  .effect-7:focus ~ ${FocusBorder}:before, .effect-7:focus ~ ${FocusBorder}:after {
+  .middle:focus ~ ${FocusBorder}:before, .middle:focus ~ ${FocusBorder}:after {
     left: 0;
     width: 100%;
     transition: 0.4s;
   }
-  .effect-7:focus ~ ${FocusBorder} i:before,
-  .effect-7:focus ~ ${FocusBorder} i:after {
+  .middle:focus ~ ${FocusBorder} i:before,
+  .middle:focus ~ ${FocusBorder} i:after {
     top: 0;
     height: 100%;
     transition: 0.6s;
   }
 
-  .effect-8 ~ ${FocusBorder}:before, .effect-8 ~ ${FocusBorder}:after {
+  .double ~ ${FocusBorder}:before, .double ~ ${FocusBorder}:after {
     left: 0;
     transition: 0.3s;
   }
-  .effect-8 ~ ${FocusBorder}:after {
+  .double ~ ${FocusBorder}:after {
     top: auto;
     bottom: 0;
     left: auto;
     right: 0;
   }
-  .effect-8 ~ ${FocusBorder} i:before,
-  .effect-8 ~ ${FocusBorder} i:after {
+  .double ~ ${FocusBorder} i:before,
+  .double ~ ${FocusBorder} i:after {
     top: 0;
     left: 0;
     transition: 0.4s;
   }
-  .effect-8 ~ ${FocusBorder} i:after {
+  .double ~ ${FocusBorder} i:after {
     left: auto;
     right: 0;
     top: auto;
     bottom: 0;
   }
-  .effect-8:focus ~ ${FocusBorder}:before, .effect-8:focus ~ ${FocusBorder}:after {
+  .double:focus ~ ${FocusBorder}:before, .double:focus ~ ${FocusBorder}:after {
     width: 100%;
     transition: 0.3s;
   }
-  .effect-8:focus ~ ${FocusBorder} i:before,
-  .effect-8:focus ~ ${FocusBorder} i:after {
+  .double:focus ~ ${FocusBorder} i:before,
+  .double:focus ~ ${FocusBorder} i:after {
     height: 100%;
     transition: 0.4s;
   }
 
-  .effect-9 ~ ${FocusBorder}:before, .effect-9 ~ ${FocusBorder}:after {
+  .unique ~ ${FocusBorder}:before, .unique ~ ${FocusBorder}:after {
     right: 0;
     transition: 0.2s;
     transition-delay: 0.2s;
   }
-  .effect-9 ~ ${FocusBorder}:after {
+  .unique ~ ${FocusBorder}:after {
     top: auto;
     bottom: 0;
     right: auto;
     left: 0;
     transition-delay: 0.6s;
   }
-  .effect-9 ~ ${FocusBorder} i:before,
-  .effect-9 ~ ${FocusBorder} i:after {
+  .unique ~ ${FocusBorder} i:before,
+  .unique ~ ${FocusBorder} i:after {
     top: 0;
     left: 0;
     transition: 0.2s;
   }
-  .effect-9 ~ ${FocusBorder} i:after {
+  .unique ~ ${FocusBorder} i:after {
     left: auto;
     right: 0;
     top: auto;
@@ -152,20 +177,20 @@ export const InputContainer = styled.div<{ line?: number; lineColor?: string; of
     transition-delay: 0.4s;
   }
 
-  .effect-9:focus ~ ${FocusBorder}:before, .effect-9:focus ~ ${FocusBorder}:after {
+  .unique:focus ~ ${FocusBorder}:before, .unique:focus ~ ${FocusBorder}:after {
     width: 100%;
     transition: 0.2s;
     transition-delay: 0.6s;
   }
-  .effect-9:focus ~ ${FocusBorder}:after {
+  .unique:focus ~ ${FocusBorder}:after {
     transition-delay: 0.2s;
   }
-  .effect-9:focus ~ ${FocusBorder} i:before,
-  .effect-9:focus ~ ${FocusBorder} i:after {
+  .unique:focus ~ ${FocusBorder} i:before,
+  .unique:focus ~ ${FocusBorder} i:after {
     height: 100%;
     transition: 0.2s;
   }
-  .effect-9:focus ~ ${FocusBorder} i:after {
+  .unique:focus ~ ${FocusBorder} i:after {
     transition-delay: 0.4s;
   }
 `
