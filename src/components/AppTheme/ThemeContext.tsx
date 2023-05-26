@@ -1,4 +1,4 @@
-import type { Dispatch, SetStateAction } from 'react'
+import type { Dispatch, SetStateAction, Context } from 'react'
 
 import { createContext } from 'use-context-selector'
 
@@ -12,6 +12,6 @@ export interface IThemeContext {
   matchRules: MatchingRules
 }
 
-const ThemeContext = createContext<IThemeContext>({} as IThemeContext)
+const ThemeContext = createContext<IThemeContext>({} as IThemeContext) as Context<IThemeContext>
 
 export { ThemeContext }
