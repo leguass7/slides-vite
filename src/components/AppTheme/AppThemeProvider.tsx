@@ -8,7 +8,7 @@ export type ThemeProviderProps = {
 }
 
 export const AppThemeProvider: React.FC<ThemeProviderProps> = ({ children, theme: themeConfig }) => {
-  const [isDark, setIsDark] = useState(false)
+  const [isDark, setIsDark] = useState(true)
 
   const localTheme = useMemo(() => {
     if (themeConfig) return themeConfig

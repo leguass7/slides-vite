@@ -9,6 +9,7 @@ export const SliderListContainer = styled.div<{ position: number; timing: number
   transition: all ease-in-out 0.1s;
   transition-duration: ${({ timing }) => timing}ms;
   transform: translateX(${({ position }) => position}px);
+  border: 1ps dashed #f0f;
 `
 
 export const SliderItemContainer = styled.div`

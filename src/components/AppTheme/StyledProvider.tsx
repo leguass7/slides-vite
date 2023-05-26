@@ -11,13 +11,18 @@ export const StyledProvider: React.FC = ({ children }) => {
 
   const themeMui = createTheme({
     palette: {
+      mode: theme?.isDark ? 'dark' : 'light',
       primary: {
         main: theme.colors.primary
       },
       secondary: {
         main: theme.colors.secondary
-      }
+      },
+      background: { paper: theme.colors.primary }
     }
+    // components: {
+
+    // }
   })
 
   return (

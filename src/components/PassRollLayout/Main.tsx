@@ -10,7 +10,7 @@ import { SliderList } from './SliderList'
 import { SliderItem } from './SliderList/SliderItem'
 import { WrapperItem } from './WrapperItem'
 
-const MainContainer = styled.div<{ showingInactive?: boolean }>`
+const PassRollMainContainer = styled.div<{ showingInactive?: boolean }>`
   width: 100%;
   max-width: 100%;
   height: 100%;
@@ -18,6 +18,8 @@ const MainContainer = styled.div<{ showingInactive?: boolean }>`
   border: 0;
   display: block;
   overflow-x: ${({ showingInactive }) => (showingInactive ? 'visible' : 'hidden')};
+  border: 0;
+  box-sizing: border-box;
 `
 
 const WrapperContainer = styled.div<{ mainWidth?: number }>`
@@ -116,7 +118,7 @@ export const Main: React.FC<MainProps> = ({
   }, [unregisterSlider, name])
 
   return (
-    <MainContainer ref={ref} showingInactive={!!showingInactive}>
+    <PassRollMainContainer ref={ref} showingInactive={!!showingInactive}>
       <WrapperContainer mainWidth={width}>
         <SliderList
           count={childrenElements.length || 1}
@@ -135,6 +137,6 @@ export const Main: React.FC<MainProps> = ({
           })}
         </SliderList>
       </WrapperContainer>
-    </MainContainer>
+    </PassRollMainContainer>
   )
 }

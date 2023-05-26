@@ -1,7 +1,6 @@
-import { usePassRoll } from '~/components/PassRollLayout'
 import React from 'react'
 
-// import { Container } from './styles';
+import { usePassRoll } from '~/components/PassRollLayout'
 
 export const Wellcome: React.FC = () => {
   const { goTo } = usePassRoll('main')

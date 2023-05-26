@@ -1,10 +1,11 @@
 import React from 'react'
+import { uid } from 'react-uid'
 
 import styled from 'styled-components'
 
-import { MainLayout } from '~/components/MainLayout'
 import { Main, SliderItem, usePassRoll } from '~/components/PassRollLayout'
-import { homeRoutes } from '~/routes/routes'
+
+import { homeRoutes } from './sliders/routes'
 
 const W = styled.div`
   margin: 0 auto;
@@ -30,19 +31,18 @@ export const PageHome: React.FC = () => {
   }
 
   return (
-    <MainLayout>
-      <Main
-        name="main"
-        showingInactive
-        onSliderChange={onChange}
-        onSliderChangeComplete={onChangeComplete}
-        onLayout={onLayout}
-        timing={1000}
-      >
-        {homeRoutes.map(({ Component = null, title }) => {
-          return <SliderItem key={title}>{Component ? <Component /> : null}</SliderItem>
-        })}
-      </Main>
-    </MainLayout>
+    <Main
+      name="main"
+      showingInactive
+      onSliderChange={onChange}
+      onSliderChangeComplete={onChangeComplete}
+      onLayout={onLayout}
+      timing={1000}
+    >
+      {homeRoutes.map((route, i) => {
+        const { Component = null } = route
+        return <SliderItem key={uid(route, i)}>{Component ? <Component /> : null}</SliderItem>
+      })}
+    </Main>
   )
 }

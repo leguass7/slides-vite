@@ -1,15 +1,16 @@
 import React from 'react'
+import { RouterProvider } from 'react-router-dom'
 
 import { AppTheme } from '@/AppTheme'
 
 import { PassRollProvider } from './components/PassRollLayout'
-import { PageHome } from './pages/Home'
+import { browserRouter } from './routes'
 
 export const App: React.FC = () => {
   return (
     <AppTheme>
       <PassRollProvider>
-        <PageHome />
+        <RouterProvider router={browserRouter} />
       </PassRollProvider>
     </AppTheme>
   )

@@ -16,6 +16,7 @@
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-resize-detector": "^7.0.0",
+    "react-router-dom": "^6.11.2",
     "react-uid": "^2.3.3",
     "scheduler": "^0.21.0",
     "styled-components": "^5.3.5",
