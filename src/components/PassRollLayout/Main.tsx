@@ -1,11 +1,13 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { useResizeDetector } from 'react-resize-detector'
+import { uid } from 'react-uid'
+
 import styled from 'styled-components'
-import { v4 as uuidV4 } from 'uuid'
 
 import { ISliderDimensions, usePassRoll, usePassRollRegister } from './PassRollProvider'
 import { filterChildrenElements } from './reactUtils'
-import { SliderList, SliderItem } from './SliderList'
+import { SliderList } from './SliderList'
+import { SliderItem } from './SliderList/SliderItem'
 import { WrapperItem } from './WrapperItem'
 
 const MainContainer = styled.div<{ showingInactive?: boolean }>`
@@ -56,7 +58,11 @@ export const Main: React.FC<MainProps> = ({
   const { slider } = usePassRoll(name)
 
   const childrenElements = useMemo(() => {
-    return filterChildrenElements(children, [SliderItem]).map((child, i) => ({ child, key: uuidV4(), index: i + 1 }))
+    return filterChildrenElements(children, [SliderItem]).map((child, i) => ({
+      child,
+      key: uid(child, i),
+      index: i + 1
+    }))
   }, [children])
 
   const sliderIndexSelected = useMemo(() => {

@@ -1,6 +1,8 @@
-import { createContext, Dispatch, SetStateAction } from 'react'
+import type { Dispatch, SetStateAction } from 'react'
 
-import { IAppTheme, MatchingRules } from './theme'
+import { createContext } from 'use-context-selector'
+
+import type { IAppTheme, MatchingRules } from './theme'
 
 export interface IThemeContext {
   isDark: boolean

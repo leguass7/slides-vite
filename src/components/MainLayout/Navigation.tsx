@@ -1,5 +1,7 @@
-import { routes } from '~/routes/routes'
 import React from 'react'
+import { uid } from 'react-uid'
+
+import { homeRoutes } from '~/routes/routes'
 
 import { NavItem } from './NavItem'
 import { NavigationContainer } from './styles'
@@ -10,8 +12,8 @@ type Props = {
 export const Navigation: React.FC<Props> = () => {
   return (
     <NavigationContainer>
-      {routes.map(route => {
-        return <NavItem key={route.title}>{route.title}</NavItem>
+      {homeRoutes.map(route => {
+        return <NavItem key={uid(route)}>{route.title}</NavItem>
       })}
     </NavigationContainer>
   )

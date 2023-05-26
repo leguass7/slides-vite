@@ -1,4 +1,5 @@
-import React, { useCallback, useState } from 'react'
+import React, { useCallback, useState, Context } from 'react'
+
 import { createContext, useContextSelector } from 'use-context-selector'
 
 export interface ISliderDimensions {
@@ -23,9 +24,12 @@ export interface IPassRollContext {
   setSelected: (name: string, index: number) => void
 }
 
-export const PassRollContext = createContext({} as IPassRollContext)
+export const PassRollContext = createContext({} as IPassRollContext) as Context<IPassRollContext>
 
-export const PassRollProvider: React.FC = ({ children }) => {
+type PassRollProviderProps = {
+  children?: React.ReactNode | null
+}
+export const PassRollProvider: React.FC<PassRollProviderProps> = ({ children }) => {
   const [sliders, setSliders] = useState<ISliders[]>([])
 
   const updateSlider = useCallback((name: string, data: Partial<ISliders>) => {

@@ -1,7 +1,8 @@
 import React from 'react'
 
-// import { Container } from './styles';
-
-export const NavItem: React.FC = () => {
-  return <div />
+export type NavItemProps = {
+  children?: React.ReactNode | null
+}
+export const NavItem: React.FC = ({ children }) => {
+  return <div>{children}</div>
 }

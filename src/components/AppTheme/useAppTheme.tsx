@@ -1,4 +1,5 @@
-import { useContext, useCallback } from 'react'
+import { useCallback } from 'react'
+import { useContext } from 'use-context-selector'
 
 import { MatchingRules, TextColor, VariantColorsTypes } from './theme'
 import { IThemeContext, ThemeContext } from './ThemeContext'

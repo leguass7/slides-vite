@@ -1,6 +1,9 @@
+import React from 'react'
+
 import { useTheme } from '@mui/material'
 import useMediaQuery from '@mui/material/useMediaQuery'
-import React from 'react'
+
+import { TopBar } from '@/TopBar'
 
 import { Navigation } from './Navigation'
 import { Container, ASideContainer, MainContainer } from './styles'
@@ -14,6 +17,7 @@ export const MainLayout: React.FC = ({ children }) => {
       <ASideContainer />
       <MainContainer>{children}</MainContainer>
       <Navigation>bsadsdsds</Navigation>
+      <TopBar />
     </Container>
   )
 }
